@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f7;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.todo-container {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 1200px; 
+}
+
+.todo-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.task-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.task-input:focus {
+  border-color: #6366f1;
+  outline: none;
+}
+
+.category-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.category-select:focus {
+  border-color: #6366f1;
+  outline: none;
+}
+
+.add-task-button {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: #4338ca;
+}
+
+.add-task-button:active {
+  background-color: #3730a3;
+}
+
+.tasks-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.task-column {
+  flex: 1;
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  min-height: 400px; 
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.task-column:hover {
+  background-color: #f1f5f9;
+}
+
+.column-title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.todo-list {
+  list-style: none;
+}
+.todo-item, .editing {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: grab; 
+}
+
+.todo-item:active {
+  cursor: grabbing;
+}
+
+.todo-item:hover, .editing:hover {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.editing {
+  background-color: #fff3cd;
+  border-left: 5px solid #ffeeba; 
+}
+
+.edit-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.edit-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.save-button {
+  background-color: #3b82f6; 
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #2563eb;
+}
+
+.save-button:active {
+  background-color: #1d4ed8;
+}
+
+.task-text {
+  font-size: 16px;
+  color: #111827;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 5px;
+}
+
+.delete-button, .edit-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button {
+  background-color: #ef4444; /* Red */
+  color: #ffffff;
+}
+
+.delete-button:hover {
+  background-color: #dc2626;
+}
+
+.delete-button:active {
+  background-color: #b91c1c;
+}
+
+.edit-button {
+  background-color: #10b981; /* Green */
+  color: #ffffff;
+}
+
+.edit-button:hover {
+  background-color: #059669;
+}
+
+.edit-button:active {
+  background-color: #047857;
+}
+
+
+.category-display {
+  margin-left: 10px;
+}
+.category-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.urgent-column .todo-item.urgent {
+  background-color: #fee2e2; 
+  border-left: 5px solid #ef4444; 
+}
+
+.work-column .todo-item.work {
+  background-color: #d1fae5;
+  border-left: 5px solid #10b981; 
+}
+.personal-column .todo-item.personal {
+  background-color: #dbeafe; 
+  border-left: 5px solid #3b82f6; 
+}
+
+@media (max-width: 768px) {
+  .tasks-columns {
+    flex-direction: column;
+  }
+}
